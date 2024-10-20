@@ -59,4 +59,18 @@ public class FlowerService implements IFlowerService{
         //     { $set: { code: 'code', price: precio, species: ObjectId('id_especie') } }
         // );
     }
+
+    @Override
+    public List<Flower> findByCode(String code) {
+        return flowerRepository.findByCode(code);
+
+        // db.flowers.find({ code: 'código' });
+    }
+
+    @Override
+    public List<Flower> findByPrice(double price) {
+        return flowerRepository.findByPrice(price);
+
+        // db.flowers.find({ price: precio });
+    }
 }

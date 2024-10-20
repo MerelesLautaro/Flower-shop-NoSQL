@@ -58,4 +58,18 @@ public class SpeciesService implements ISpeciesService {
         //     { $set: { name: 'nombre de la especie', exposureTime: tiempo_exposición, floweringTimes: [ObjectId('id_tiempo_floracion')], soilTypes: [ObjectId('id_tipo_suelo')], seasons: [ObjectId('id_estacion')] } }
         // );
     }
+
+    @Override
+    public List<Species> findByName(String name) {
+        return speciesRepository.findByName(name);
+
+        // db.species.find({ name: 'nombre' });
+    }
+
+    @Override
+    public List<Species> findByExposureTime(double exposureTime) {
+        return speciesRepository.findByExposureTime(exposureTime);
+
+        // db.species.find({ exposureTime: tiempo_de_exposición });
+    }
 }

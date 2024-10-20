@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IFlowerService {
-    Flower saveFlower(Flower flower);
-    List<Flower> getFlowers();
-    Optional<Flower> findFlower(ObjectId id);
-    void deleteFlower(ObjectId id);
-    Flower editFlower(ObjectId id, Flower flower);
+    public Flower saveFlower(Flower flower);
+    public List<Flower> getFlowers();
+    public Optional<Flower> findFlower(ObjectId id);
+    public void deleteFlower(ObjectId id);
+    public Flower editFlower(ObjectId id, Flower flower);
+    public List<Flower> findByCode(String code);
+    public List<Flower> findByPrice(double price);
 }

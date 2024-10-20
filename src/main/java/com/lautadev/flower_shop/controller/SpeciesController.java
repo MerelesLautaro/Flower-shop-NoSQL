@@ -33,6 +33,16 @@ public class SpeciesController {
         return species.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/get/{name}")
+    public ResponseEntity<List<Species>> findByName(@PathVariable String name){
+        return ResponseEntity.ok(speciesService.findByName(name));
+    }
+
+    @GetMapping("/get/findByExposureTime")
+    public ResponseEntity<List<Species>> findByExposureTime(@RequestParam double exposureTime){
+        return ResponseEntity.ok(speciesService.findByExposureTime(exposureTime));
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteSpecies(@PathVariable ObjectId id){
         speciesService.deleteSpecies(id);

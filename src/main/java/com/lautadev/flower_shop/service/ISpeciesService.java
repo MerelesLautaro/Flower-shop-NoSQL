@@ -12,4 +12,6 @@ public interface ISpeciesService {
     public Optional<Species> findSpecies(ObjectId id);
     public void deleteSpecies(ObjectId id);
     public Species editSpecies(ObjectId id, Species species);
+    public List<Species> findByName(String name);
+    public List<Species> findByExposureTime(double exposureTime);
 }

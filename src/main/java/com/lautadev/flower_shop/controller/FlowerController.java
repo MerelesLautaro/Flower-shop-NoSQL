@@ -33,6 +33,16 @@ public class FlowerController {
         return flower.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/get/{code}")
+    public ResponseEntity<List<Flower>> findByCode(@PathVariable String code){
+        return ResponseEntity.ok(flowerService.findByCode(code));
+    }
+
+    @GetMapping("/get/findByPrice")
+    public ResponseEntity<List<Flower>> findByPrice(@RequestParam double price){
+        return ResponseEntity.ok(flowerService.findByPrice(price));
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteFlower(@PathVariable ObjectId id){
         flowerService.deleteFlower(id);
